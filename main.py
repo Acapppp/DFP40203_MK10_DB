@@ -15,8 +15,12 @@ def print_hi():
     for x in myresult:
         print(x[0])
 
-    sql = "INSERT INTO pelajar (idpelajar, namapelajar) VALUES (%s, %s)"
-    val = (2003, "Siti Hajar Binti Faris")
+
+def insert():
+    mycursor = mydb.cursor()
+    sql = "INSERT INTO pelajar (namapelajar) VALUES (%s)"
+    stdname = input("Masukkan nama pelajar : ")
+    val = (stdname,)
     mycursor.execute(sql, val)
 
     mydb.commit()
@@ -25,4 +29,4 @@ def print_hi():
 
 
 if __name__ == '__main__':
-    print_hi()
+    insert()
